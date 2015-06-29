@@ -14,7 +14,7 @@
 @interface FISLocationsViewController () <FISAddLocationViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *triviaLocations;
-@property (nonatomic, strong) NSMutableArray *triviaLocationNames;
+@property (nonatomic, strong) NSMutableArray *triviaLocationNamesLowerCase;
 
 @end
 
@@ -38,9 +38,9 @@
     
     NSMutableArray *locationNamesTemp = [[NSMutableArray alloc] init];
     for (FISLocation *triviaLocation in triviaLocations) {
-        [locationNamesTemp addObject:triviaLocation.name];
+        [locationNamesTemp addObject:[(NSString*)triviaLocation.name lowercaseString]];
     }
-    _triviaLocationNames = locationNamesTemp;
+    _triviaLocationNamesLowerCase = locationNamesTemp;
 }
 
 #pragma mark - Table view data source
@@ -88,7 +88,7 @@
 
 -(BOOL)addLocationViewController:(FISAddLocationViewController *)viewController shouldAllowLocationNamed:(NSString *)locationName
 {
-    BOOL isAlreadyInList = [self.triviaLocationNames containsObject:locationName]; 
+    BOOL isAlreadyInList = [self.triviaLocationNamesLowerCase containsObject:[(NSString*)locationName lowercaseString]]; 
     if (isAlreadyInList) {
         return viewController.saveButton.enabled = NO;
     } else
