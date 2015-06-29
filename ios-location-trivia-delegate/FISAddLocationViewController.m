@@ -30,7 +30,9 @@
 
 -(IBAction)saveButtonTapped:(id)sender
 {
-    if (![self.nameField.text isEqualToString:@""]) {
+    
+    if (![self.nameField.text isEqualToString:@""] &&
+        [self.delegate addLocationViewController:self shouldAllowLocationNamed:self.nameField.text]) {
         [self.delegate addLocationViewController:self didAddLocationNamed:self.nameField.text];
     }
 }
@@ -47,14 +49,6 @@
     
     return YES;
 }
-
-//-(void)textFieldDidBeginEditing:(UITextField *)textField
-//{
-//    if (textField == self.nameField) {
-//        [self.delegate addLocationViewController:self shouldAllowLocationNamed:self.nameField.text];
-//    }
-//}
-
 
 -(BOOL)prefersStatusBarHidden
 {
