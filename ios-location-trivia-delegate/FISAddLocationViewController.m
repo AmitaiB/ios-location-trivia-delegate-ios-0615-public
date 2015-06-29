@@ -19,14 +19,27 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.nameField.delegate = self;
+    self.saveButton.enabled = NO;
 }
 
 -(IBAction)cancelButtonTapped:(id)sender
 {
+    [self.delegate addLocationViewControllerDidCancel:self];
 }
 
 -(IBAction)saveButtonTapped:(id)sender
 {
+    
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField == self.nameField) {
+        if ([self.delegate addLocationViewController:self   shouldAllowLocationNamed:self.nameField.text]) {
+            self.saveButton.enabled = YES;
+        }
+    }
 }
 
 -(BOOL)prefersStatusBarHidden

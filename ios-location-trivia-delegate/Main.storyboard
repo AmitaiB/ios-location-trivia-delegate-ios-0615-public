@@ -90,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="nameField" destination="fg4-su-5Ja" id="KzX-fv-JRL"/>
+                        <outlet property="saveButton" destination="pC6-mY-8mB" id="DXZ-CB-LfM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNJ-0G-UKO" userLabel="First Responder" sceneMemberID="firstResponder"/>

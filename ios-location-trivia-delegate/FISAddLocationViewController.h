@@ -10,8 +10,9 @@
 #import "FISAddLocationViewControllerDelegate.h"
 
 
-@interface FISAddLocationViewController : UIViewController
+@interface FISAddLocationViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak) id<FISAddLocationViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @end
