@@ -42,7 +42,7 @@
                     <navigationItem key="navigationItem" title="Locations" id="gIf-IP-liv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UhH-oj-Nwi">
                             <connections>
-                                <segue destination="eFU-jz-aJ7" kind="modal" id="Be7-Qa-18I"/>
+                                <segue destination="eFU-jz-aJ7" kind="modal" identifier="locationsToAddLocationsSegueID" id="Be7-Qa-18I"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
