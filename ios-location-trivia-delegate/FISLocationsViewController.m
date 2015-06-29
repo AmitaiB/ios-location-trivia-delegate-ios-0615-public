@@ -8,10 +8,12 @@
 
 #import "FISLocationsViewController.h"
 #import "FISLocation.h"
+#import "FISAddLocationViewControllerDelegate.h"
 
-@interface FISLocationsViewController ()
+@interface FISLocationsViewController () <FISAddLocationViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *triviaLocations;
+@property (nonatomic, strong) NSMutableArray *triviaLocationNames;
 
 @end
 
@@ -25,6 +27,19 @@
     FISLocation *bowlingGreen = [[FISLocation alloc] initWithName:@"Bowling Green" trivia:@[ @"NYC's oldest park", @"Made a park in 1733", @"Charging Bull was created in 1989" ]];
 
     self.triviaLocations = [@[ empireStateBuilding, bowlingGreen ] mutableCopy];
+}
+
+#pragma mark - Override setter
+
+-(void)setTriviaLocations:(NSMutableArray *)triviaLocations
+{
+    _triviaLocations = triviaLocations;
+    
+    NSMutableArray *locationNamesTemp = [[NSMutableArray alloc] init];
+    for (FISLocation *triviaLocation in triviaLocations) {
+        [locationNamesTemp addObject:triviaLocation.name];
+    }
+    _triviaLocationNames = locationNamesTemp;
 }
 
 #pragma mark - Table view data source
@@ -59,5 +74,27 @@
 {
     
 }
+
+#pragma mark - Delegate protocol methods
+
+-(void)addLocationViewControllerDidCancel:(FISAddLocationViewController *)viewController
+{
+//How come Xcode doesn't recognize the ViewController?
+}
+
+-(BOOL)addLocationViewController:(FISAddLocationViewController *)viewController shouldAllowLocationNamed:(NSString *)locationName
+{
+    BOOL isAlreadyInList = [self.triviaLocationNames containsObject:locationName]; 
+    if (isAlreadyInList) {
+        return NO;
+    } else
+        return YES;
+}
+
+-(void)addLocationViewController:(FISAddLocationViewController *)viewController didAddLocationNamed:(NSString *)locationName
+{
+    
+}
+
 
 @end

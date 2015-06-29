@@ -30,21 +30,17 @@
 
 -(IBAction)saveButtonTapped:(id)sender
 {
-    
+    [self.delegate addLocationViewController:self didAddLocationNamed:self.nameField.text];
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    if (textField == self.nameField) {
-        if ([self.delegate addLocationViewController:self   shouldAllowLocationNamed:self.nameField.text]) {
-            self.saveButton.enabled = YES;
-        }
-    }
-}
+
+
 
 -(BOOL)prefersStatusBarHidden
 {
     return YES;
 }
+
+
 
 @end
