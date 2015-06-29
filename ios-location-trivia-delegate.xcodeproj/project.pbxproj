@@ -35,6 +35,7 @@
 		1692BD9733D5A8B3952F64DA /* ios-location-trivia-delegate-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ios-location-trivia-delegate-Prefix.pch"; sourceTree = "<group>"; };
 		2036F85E033DB9924079DF7B /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27409456CE94F00996D38DFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		382952BE1B40C44B00FB9EFD /* FISAddLocationViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAddLocationViewControllerDelegate.h; sourceTree = "<group>"; };
 		4E1DE917CB062D002DEAE9DF /* FISAppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FISAppDelegate.m; sourceTree = "<group>"; };
 		70A2C20BDADADF6FA472FAE5 /* ios-location-trivia-delegate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ios-location-trivia-delegate-Info.plist"; sourceTree = "<group>"; };
 		7BE6B9F5B6984AED57062FA3 /* Pods-unit_tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-unit_tests/Pods-unit_tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 				BDCEE86B1B39C5C000207246 /* FISLocationsViewController.m */,
 				BDCEE86D1B39C5CB00207246 /* FISAddLocationViewController.h */,
 				BDCEE86E1B39C5CB00207246 /* FISAddLocationViewController.m */,
+				382952BE1B40C44B00FB9EFD /* FISAddLocationViewControllerDelegate.h */,
 				018317FA93A97E7012ABEBB6 /* Resources */,
 			);
 			path = "ios-location-trivia-delegate";
