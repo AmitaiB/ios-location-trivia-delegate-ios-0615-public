@@ -97,7 +97,10 @@
 
 -(void)addLocationViewController:(FISAddLocationViewController *)viewController didAddLocationNamed:(NSString *)locationName
 {
+    FISLocation *newLocation = [[FISLocation alloc] initWithName:locationName trivia:@[]];
+    [self.triviaLocations addObject:newLocation];
     [viewController dismissViewControllerAnimated:YES completion:nil];
+    [self.tableView reloadData];
 }
 
 
