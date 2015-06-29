@@ -73,7 +73,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    FISAddLocationViewController *addLocationVC = segue.destinationViewController;
+    addLocationVC.delegate = self;
 }
 
 #pragma mark - Delegate protocol methods
