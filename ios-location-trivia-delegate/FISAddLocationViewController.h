@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FISAddLocationViewControllerDelegate.h"
+
 
 @interface FISAddLocationViewController : UIViewController
+
+@property (weak) id<FISAddLocationViewControllerDelegate> delegate;
 
 @end
