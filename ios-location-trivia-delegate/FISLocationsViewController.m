@@ -8,6 +8,7 @@
 
 #import "FISLocationsViewController.h"
 #import "FISLocation.h"
+#import "FISAddLocationViewController.h"
 #import "FISAddLocationViewControllerDelegate.h"
 
 @interface FISLocationsViewController () <FISAddLocationViewControllerDelegate>
@@ -79,21 +80,21 @@
 
 -(void)addLocationViewControllerDidCancel:(FISAddLocationViewController *)viewController
 {
-//How come Xcode doesn't recognize the ViewController?
+    [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(BOOL)addLocationViewController:(FISAddLocationViewController *)viewController shouldAllowLocationNamed:(NSString *)locationName
 {
     BOOL isAlreadyInList = [self.triviaLocationNames containsObject:locationName]; 
     if (isAlreadyInList) {
-        return NO;
+        return viewController.saveButton.enabled = NO;
     } else
-        return YES;
+        return viewController.saveButton.enabled = YES;
 }
 
 -(void)addLocationViewController:(FISAddLocationViewController *)viewController didAddLocationNamed:(NSString *)locationName
 {
-    
+    [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
