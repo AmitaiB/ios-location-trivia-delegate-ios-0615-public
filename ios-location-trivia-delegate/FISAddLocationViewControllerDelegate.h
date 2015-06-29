@@ -17,7 +17,9 @@
 
 @required
 -(void)addLocationViewControllerDidCancel:(FISAddLocationViewController *)viewController;
+
 -(BOOL)addLocationViewController:(FISAddLocationViewController *)viewController shouldAllowLocationNamed:(NSString *)locationName;
+
 -(void)addLocationViewController:(FISAddLocationViewController *)viewController didAddLocationNamed:(NSString *)locationName;
 
 @end

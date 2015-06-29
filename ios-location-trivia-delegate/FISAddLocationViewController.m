@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     self.nameField.delegate = self;
-    self.saveButton.enabled = NO;
+//    self.saveButton.enabled = NO;
 }
 
 -(IBAction)cancelButtonTapped:(id)sender
@@ -30,10 +30,30 @@
 
 -(IBAction)saveButtonTapped:(id)sender
 {
-    [self.delegate addLocationViewController:self didAddLocationNamed:self.nameField.text];
+    if (![self.nameField.text isEqualToString:@""]) {
+        [self.delegate addLocationViewController:self didAddLocationNamed:self.nameField.text];
+    }
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.nameField) {
+        if([self.delegate addLocationViewController:self shouldAllowLocationNamed:self.nameField.text]) {
+            self.saveButton.enabled = YES;
+        } else {
+            self.saveButton.enabled = NO;
+        };
+    }
+    
+    return YES;
+}
 
+//-(void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//    if (textField == self.nameField) {
+//        [self.delegate addLocationViewController:self shouldAllowLocationNamed:self.nameField.text];
+//    }
+//}
 
 
 -(BOOL)prefersStatusBarHidden
